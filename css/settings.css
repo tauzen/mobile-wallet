@@ -46,6 +46,10 @@
   color: #ccc;
 }
 
+.settings-disabled .gaia-icon::before {
+  color: #ccc;
+}
+
 .settings-disclaimer {
   font-size: 0.6em;
   padding: 0px 15px 10px 15px;
@@ -59,10 +63,12 @@
 
 .settings-foward .gaia-icon {
   text-align: right;
+  color: #868692;
 }
 
 .settings-foward .gaia-icon::before {
   position: relative;
+  font-size: 1.5rem;
 }
 
 #settings-status {
@@ -157,4 +163,14 @@
   line-height: 1em;
   font-size: 0.6em;
   color: #333;
+}
+
+/* ugly hacks to override header.css, TODO migrate to proper gaia header */
+section[role="region"].settings-subpage > header:first-child h1:nth-child(2) {
+  margin: -1px;
+}
+
+section.skin-organic.settings-subpage[role="region"] > header:first-child .gaia-icon {
+  color: #868692;
+  background: none;
 }

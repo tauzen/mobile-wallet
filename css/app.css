@@ -65,15 +65,6 @@ section[role="region"] > header:first-child h1:nth-child(2) {
   margin-left: 50px;
 }
 
-/* ugly hacks to override header.css, TODO migrate to proper gaia header */
-section[role="region"].settings-subpage > header:first-child h1:nth-child(2) {
-  margin: -1px;
-}
-
-section.skin-organic.settings-subpage[role="region"] > header:first-child .gaia-icon {
-  color: #868692;
-}
-
 #hci-notification {
   position: absolute;
   top: 0;
