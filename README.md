@@ -15,7 +15,7 @@ Smart Cards; UICC-Terminal interface; Physical and logical characteristics (Rele
 ##Testing on a device
 Prerequisites:
 * NFC-enabled SIM card with Payment/Non-payment services provisioned by your Mobile Operator.
-* FirefoxOS device with NFC and Secure Element API support. Currently these are supported on Nexus 5 running FirefoxOS 2.2 and above. Flame support should be supported in upcomming weeks.
+* FirefoxOS device with NFC and Secure Element API support. Currently these are supported on Nexus 5 running FirefoxOS 2.2 and above. Flame support should be available in upcomming weeks.
 
 Mobile Wallet is a ``certified`` app, Secure Element API is not yet available to ``privilaged`` apps. We are working on opening SE API access to all developers, but there are still some remaing issues related to Access Control which need to be sorted out. So to run application yourself you will need to:
 * have a supported device with *Debugging via USB* set to *ADB and DevTools*
