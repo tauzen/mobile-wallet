@@ -12,7 +12,8 @@
   "type": "certified",
   "permissions": {
     "secureelement-manage": {},
-    "nfc-hci-events":{}
+    "nfc-hci-events":{},
+    "nfc":{}
   },
   "secure_element_access": ["*/A0*"],
   "messages": [

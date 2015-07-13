@@ -186,9 +186,7 @@
         }
       });
 
-      if(Object.keys(changes).length) {
-        this._notify({ action: 'settings-updated', changes: changes });
-      }
+      this._notify({ action: 'settings-updated', changes: changes });
     },
   };
 

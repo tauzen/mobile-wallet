@@ -40,6 +40,12 @@ window.addEventListener('DOMContentLoaded', function() {
   SIMAccess.uiccAid = settings.uiccAid;
   SIMAccess.pinP2 = settings.pinP2;
 
+  var checkNfcStatus = function checkNfcStatus() {
+    if(!window.navigator.mozNfc.enabled) {
+      appView.showNfcDisabled();
+    }
+  }
+
   // pin verification
   var performPinCheck = function performPinCheck() {
     if(settings.pinEnabled && !pin.pinCheckInProgress) {
@@ -50,6 +56,7 @@ window.addEventListener('DOMContentLoaded', function() {
         }
 
         appView.showMainView();
+        checkNfcStatus();
       });
     }
 
@@ -64,6 +71,7 @@ window.addEventListener('DOMContentLoaded', function() {
     .then(() => payments.init())
     .then(() => nonPayments.init())
     .then(() => { appState.initialised = true; })
+    .then(checkNfcStatus)
     .catch((error) => {
       log('Init promise chain broken. Reason: ' + error);
       appView.showErrorView(error);
@@ -75,6 +83,7 @@ window.addEventListener('DOMContentLoaded', function() {
   document.addEventListener('visibilitychange', () => {
     log('Visibility change');
     if(!document.hidden && appState.initialised) {
+      checkNfcStatus();
       performPinCheck().catch((e) => appView.showErrorView(e));
     }
 
@@ -118,6 +127,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
       if(refreshNeeded) {
         initApp();
+      } else {
+        checkNfcStatus();
       }
     }
   }});

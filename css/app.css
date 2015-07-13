@@ -30,6 +30,41 @@ ul {
   display: none;
 }
 
+#indicator-nfc {
+  display: none;
+  align-items: center;
+  text-align: center;
+  background-color: #D8D8D8;
+  color: white;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 2.5rem;
+  line-height: 1.6rem;
+  font-style: italic;
+  position: absolute;
+  z-index: 6;
+  left: 250px;
+  top: 105px;
+  opacity: 0;
+}
+
+#indicator-nfc.animation-blink {
+  display: flex;
+  opacity: 0;
+  animation-name: pulse-opacity;
+  animation-duration: 10s;
+}
+
+@keyframes pulse-opacity {
+  0% { opacity: 0; }
+  15% { opacity: 1; }
+  30% { opacity: 0.5; }
+  45% { opacity: 1; }
+  60% { opacity: 0.5; }
+  75% { opacity: 1; }
+  100% { opacity: 0; }
+}
+
 #main article > header {
   background-color: rgb(248, 246, 246);
   color: #F97C17;
@@ -360,5 +395,9 @@ ul.details > li p.value {
   ul.details > li.details-more {
     padding-right: 20px;
     padding-left: 20px;
+  }
+
+  #indicator-nfc {
+    left: 265px;
   }
 }

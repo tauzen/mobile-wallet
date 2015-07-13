@@ -13,12 +13,15 @@
     var settingsBtn = this._mainEl.querySelector('#settings-edit');
     settingsBtn.addEventListener('click', () => this._settingsClicked());
 
+    this._nfcIndicator = this._mainEl.querySelector('#indicator-nfc');
+
     addMixin(this, ObserverSubjectMixin);
   };
 
   AppView.prototype = {
     _mainEl: null,
     _errorView: null,
+    _nfcIndicator: null,
 
     showMainView: function showMainView() {
       this._mainEl.classList.remove('hide');
@@ -36,6 +39,18 @@
 
     hideErrorView: function hideErrorView() {
       this._errorView.hide();
+    },
+
+    showNfcDisabled: function showNfcDisabled() {
+      var handler = () => {
+        this._nfcIndicator.removeEventListener('animationend', handler);
+        this._nfcIndicator.classList.remove('animation-blink');
+      }
+
+      if(!this._nfcIndicator.classList.contains('animation-blink')) {
+        this._nfcIndicator.addEventListener('animationend', handler);
+        this._nfcIndicator.classList.add('animation-blink');
+      }
     },
 
     onEvent: function onEvent(id, data) {
